@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알림 목록 - My App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <a href="dashboard.html" class="back-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    대시보드로
+                </a>
+                <span class="page-title">알림 목록</span>
+            </div>
+            <div class="user-profile">
+                <span id="user-name" class="username">User</span>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <div class="card">
+                <h3>최근 알림</h3>
+                <p class="description">수신된 알림 목록입니다. (샘플 데이터)</p>
+                <div class="table-wrapper">
+                    <table class="notification-table">
+                        <thead>
+                            <tr>
+                                <th>시간</th>
+                                <th>발신자 번호</th>
+                                <th>메시지 내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2026-02-10 09:01:12</td>
+                                <td>010-1234-0001</td>
+                                <td>주차 위치를 확인해주세요.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 09:05:27</td>
+                                <td>010-9876-0002</td>
+                                <td>차량 이동이 필요한 구역입니다.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 09:10:45</td>
+                                <td>010-5555-0003</td>
+                                <td>비상등이 켜져 있는 것 같습니다.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 09:15:03</td>
+                                <td>010-2222-0004</td>
+                                <td>차량 문이 열려 있는지 확인 부탁드립니다.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 09:20:18</td>
+                                <td>010-3333-0005</td>
+                                <td>주차 시간이 곧 만료됩니다.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 09:25:39</td>
+                                <td>010-4444-0006</td>
+                                <td>주차 요금 정산을 진행해주세요.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 09:30:01</td>
+                                <td>010-6666-0007</td>
+                                <td>차량 근처에서 경미한 접촉이 감지되었습니다.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 09:35:22</td>
+                                <td>010-7777-0008</td>
+                                <td>등록된 위치와 다른 구역에 주차되어 있습니다.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 09:40:48</td>
+                                <td>010-8888-0009</td>
+                                <td>차량 주변에 짐이 놓여 있습니다.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 09:45:10</td>
+                                <td>010-9999-0010</td>
+                                <td>장시간 주차로 인한 추가 요금이 발생했습니다.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 09:50:33</td>
+                                <td>010-1010-0011</td>
+                                <td>근처 거주자 민원이 접수되었습니다.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 09:55:47</td>
+                                <td>010-2020-0012</td>
+                                <td>차량 경고음이 감지되었습니다.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 10:01:05</td>
+                                <td>010-3030-0013</td>
+                                <td>차량 앞 공간이 좁습니다. 이동을 권장합니다.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 10:06:19</td>
+                                <td>010-4040-0014</td>
+                                <td>주차 구역 라인을 다시 확인해주세요.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 10:11:42</td>
+                                <td>010-5050-0015</td>
+                                <td>차량 주변이 혼잡합니다. 이동을 부탁드립니다.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 10:16:58</td>
+                                <td>010-6060-0016</td>
+                                <td>등록된 연락처로 연락이 닿지 않았습니다.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 10:22:21</td>
+                                <td>010-7070-0017</td>
+                                <td>차량의 실내등이 켜져 있는 것 같습니다.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 10:27:39</td>
+                                <td>010-8080-0018</td>
+                                <td>충전 완료된 차량입니다. 이동을 부탁드립니다.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 10:32:54</td>
+                                <td>010-9090-0019</td>
+                                <td>차량 주변에 공사 작업이 예정되어 있습니다.</td>
+                            </tr>
+                            <tr>
+                                <td>2026-02-10 10:38:12</td>
+                                <td>010-1111-0020</td>
+                                <td>관리실로 방문해 주시기 바랍니다.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = Auth.checkAuth();
+            if (user) {
+                const nameEl = document.getElementById('user-name');
+                if (nameEl) {
+                    nameEl.textContent = user.name;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
+
