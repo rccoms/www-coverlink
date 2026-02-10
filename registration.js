@@ -7,7 +7,6 @@ const Registration = {
     /**
      * 공통 확인 모달
      * settings.html 내 #confirm-modal 을 사용해서 확인/취소를 받는다.
-     * 모달이 없으면 기본 window.confirm 으로 폴백.
      */
     confirmWithModal: function (message, onConfirm) {
         const modal = document.getElementById('confirm-modal');
@@ -15,11 +14,8 @@ const Registration = {
         const okBtn = document.getElementById('confirm-ok');
         const cancelBtn = document.getElementById('confirm-cancel');
 
-        // 모달 요소가 없으면 기본 confirm 사용
         if (!modal || !msgEl || !okBtn || !cancelBtn) {
-            if (window.confirm(message)) {
-                onConfirm && onConfirm();
-            }
+            console.error('confirmWithModal: modal elements not found');
             return;
         }
 
@@ -56,7 +52,7 @@ const Registration = {
         const cancelBtn = document.getElementById('confirm-cancel');
 
         if (!modal || !msgEl || !okBtn || !cancelBtn) {
-            window.alert(message);
+            console.error('showAlertModal: modal elements not found', message);
             return;
         }
 
@@ -75,44 +71,6 @@ const Registration = {
 
         okBtn.onclick = () => {
             close();
-        };
-    },
-
-    /**
-     * 공통 확인 모달
-     * settings.html 내 #confirm-modal 을 사용해서 확인/취소를 받는다.
-     * 모달이 없으면 기본 window.confirm 으로 폴백.
-     */
-    confirmWithModal: function (message, onConfirm) {
-        const modal = document.getElementById('confirm-modal');
-        const msgEl = document.getElementById('confirm-message');
-        const okBtn = document.getElementById('confirm-ok');
-        const cancelBtn = document.getElementById('confirm-cancel');
-
-        // 모달 요소가 없으면 기본 confirm 사용
-        if (!modal || !msgEl || !okBtn || !cancelBtn) {
-            if (window.confirm(message)) {
-                onConfirm && onConfirm();
-            }
-            return;
-        }
-
-        msgEl.textContent = message;
-        modal.style.display = 'flex';
-
-        const close = () => {
-            modal.style.display = 'none';
-            okBtn.onclick = null;
-            cancelBtn.onclick = null;
-        };
-
-        cancelBtn.onclick = () => {
-            close();
-        };
-
-        okBtn.onclick = () => {
-            close();
-            onConfirm && onConfirm();
         };
     },
 
@@ -227,7 +185,7 @@ const Registration = {
                     Auth.updateUser({ vehicleNumber: null });
                     user.vehicleNumber = null;
                     updateUI(null);
-                    alert('차량번호가 삭제되었습니다.');
+                    this.showAlertModal('차량번호가 삭제되었습니다.');
                 });
             };
         }
@@ -249,7 +207,7 @@ const Registration = {
                 Auth.updateUser({ vehicleNumber: val });
                 user.vehicleNumber = val;
                 updateUI(val);
-                alert('차량번호가 저장되었습니다.');
+                this.showAlertModal('차량번호가 저장되었습니다.');
             };
         }
     },
@@ -305,7 +263,7 @@ const Registration = {
                     Auth.updateUser({ phoneNumber: null });
                     user.phoneNumber = null;
                     updateUI(null);
-                    alert('휴대폰 번호가 삭제되었습니다.');
+                    this.showAlertModal('휴대폰 번호가 삭제되었습니다.');
                 });
             };
         }
@@ -328,7 +286,7 @@ const Registration = {
                 Auth.updateUser({ phoneNumber: val });
                 user.phoneNumber = val;
                 updateUI(val);
-                alert('휴대폰 번호가 저장되었습니다.');
+                this.showAlertModal('휴대폰 번호가 저장되었습니다.');
             };
         }
 

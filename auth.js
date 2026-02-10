@@ -69,9 +69,16 @@ const Auth = {
             window.location.href = 'dashboard.html';
         } catch (error) {
             console.error('Error fetching Google user info:', error);
-            alert('구글 로그인 중 오류가 발생했습니다.');
+            if (typeof document !== 'undefined') {
+                const el = document.getElementById('login-error');
+                if (el) {
+                    el.textContent = '구글 로그인 중 오류가 발생했습니다.';
+                    el.style.display = 'block';
+                }
+            }
         }
     },
+
 
     /**
      * Update user session data

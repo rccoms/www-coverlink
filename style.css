@@ -206,6 +206,13 @@ body {
     border-bottom-color: var(--text-primary);
 }
 
+.login-error {
+    margin-top: 16px;
+    font-size: 13px;
+    color: #dc2626;
+    text-align: center;
+}
+
 /* Hover Effects */
 .social-btn:active {
     transform: scale(0.98);
@@ -328,6 +335,118 @@ body {
 
 .session-info p {
     margin-bottom: 8px;
+}
+
+/* Status section (현재 내 차 상태) */
+.status-section {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #f1f3f5;
+}
+
+.status-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.status-main {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background-color: #9ca3af;
+}
+
+.status-dot.status-available {
+    background-color: #22c55e;
+}
+
+.status-dot.status-driving {
+    background-color: #f59e0b;
+}
+
+.status-dot.status-meeting {
+    background-color: #ef4444;
+}
+
+.status-dot.status-away {
+    background-color: #6366f1;
+}
+
+.status-dot.status-custom {
+    background-color: #0ea5e9;
+}
+
+.status-title {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.status-description {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.status-divider {
+    margin: 12px 0;
+    border: none;
+    border-top: 1px solid #e5e7eb;
+}
+
+.status-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.status-actions-label {
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+.status-chip {
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.status-chip:hover {
+    background-color: #eff6ff;
+}
+
+.status-chip-active {
+    border-color: #2563eb;
+    background-color: #eff6ff;
+    color: #1d4ed8;
+}
+
+.status-custom-editor {
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.status-custom-input {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    font-size: 12px;
 }
 
 .badge {
@@ -600,8 +719,38 @@ body {
 }
 
 .notification-preview-time {
-    font-weight: 500;
+    font-weight: 600;
     color: #4b5563;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+
+.notification-preview-dot {
+    color: #9ca3af;
+    flex: 0 0 auto;
+}
+
+.notification-preview li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0; /* ellipsis 동작을 위한 필수 */
+}
+
+.notification-preview-sender {
+    flex: 0 1 110px;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.notification-preview-message {
+    flex: 1 1 auto;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @media (max-width: 480px) {
