@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대시보드 - 환영합니다</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="logo">My App</div>
+            <div class="user-profile">
+                <img id="user-avatar" src="" alt="Profile" class="avatar">
+                <span id="user-name" class="username">User</span>
+                <button id="logout-btn" class="logout-btn">로그아웃</button>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <div class="welcome-card">
+                <h1 id="welcome-message">환영합니다!</h1>
+                <p>로그인이 성공적으로 완료되었습니다.</p>
+                <div class="session-info">
+                    <p>로그인 제공자: <span id="provider-name" class="badge">Provider</span></p>
+                    <p>로그인 시간: <span id="login-time">Time</span></p>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>내 활동</h3>
+                    <p>최근 활동 내역이 없습니다.</p>
+                </div>
+                <div class="card">
+                    <h3>알림</h3>
+                    <p>새로운 알림이 없습니다.</p>
+                </div>
+                <a href="settings.html" class="card" style="text-decoration: none; color: inherit; cursor: pointer;">
+                    <h3>설정</h3>
+                    <p>차량 정보 및 연락처 관리</p>
+                </a>
+            </div>
+        </main>
+    </div>
+    <script src="auth.js"></script>
+    <script src="registration.js"></script>
+    <script>
+        // Check auth on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = Auth.checkAuth();
+            if (user) {
+                document.getElementById('user-name').textContent = user.name;
+                document.getElementById('welcome-message').textContent = `${user.name}님, 환영합니다!`;
+
+                document.getElementById('welcome-message').textContent = `${user.name}님, 환영합니다!`;
+
+                // Registration.init() is now only in settings.html
+
+                document.getElementById('provider-name').textContent = user.provider;
+                document.getElementById('provider-name').classList.add(user.provider); // for styling
+                document.getElementById('login-time').textContent = new Date(user.loginTime).toLocaleString();
+
+                // Set avatar if available, otherwise use a default
+                if (user.avatar) {
+                    document.getElementById('user-avatar').src = user.avatar;
+                } else {
+                    document.getElementById('user-avatar').src = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(user.name) + '&background=random';
+                }
+            }
+
+            document.getElementById('logout-btn').addEventListener('click', () => {
+                Auth.logout();
+            });
+        });
+    </script>
+</body>
+
+</html>

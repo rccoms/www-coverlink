@@ -1,0 +1,405 @@
+:root {
+    --bg-color: #F8FAFD;
+    --card-bg: #FFFFFF;
+    --text-primary: #191F28;
+    --text-secondary: #8B95A1;
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.08);
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+
+    /* Brand Colors */
+    --google-bg: #FFFFFF;
+    --google-border: #E0E2E7;
+    --google-text: #191F28;
+    --apple-bg: #000000;
+    --apple-text: #FFFFFF;
+    --naver-bg: #03C75A;
+    --naver-text: #FFFFFF;
+    --kakao-bg: #FEE500;
+    --kakao-text: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-container {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 420px;
+    padding: 48px 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.login-header {
+    margin-bottom: 40px;
+}
+
+.login-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+}
+
+.login-header p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.social-btn {
+    position: relative;
+    width: 100%;
+    height: 52px;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.icon-wrapper {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+.icon-wrapper svg {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-text {
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Loading State */
+.social-btn.loading {
+    opacity: 0.8;
+}
+
+.social-btn.loading::after {
+    content: "";
+    position: absolute;
+    right: 20px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Google */
+.social-btn.google {
+    background-color: var(--google-bg);
+    color: var(--google-text);
+    border: 1px solid var(--google-border);
+}
+
+.social-btn.google:hover {
+    background-color: #F8F9FA;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.social-btn.google.loading::after {
+    border-top-color: var(--text-secondary);
+}
+
+/* Apple */
+.social-btn.apple {
+    background-color: var(--apple-bg);
+    color: var(--apple-text);
+}
+
+.social-btn.apple:hover {
+    background-color: #1a1a1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Naver */
+.social-btn.naver {
+    background-color: var(--naver-bg);
+    color: var(--naver-text);
+}
+
+.social-btn.naver:hover {
+    background-color: #02b351;
+    box-shadow: 0 4px 12px rgba(3, 199, 90, 0.2);
+}
+
+/* Kakao */
+.social-btn.kakao {
+    background-color: var(--kakao-bg);
+    color: var(--kakao-text);
+}
+
+.social-btn.kakao:hover {
+    background-color: #fddc00;
+    box-shadow: 0 4px 12px rgba(254, 229, 0, 0.3);
+}
+
+.login-footer {
+    margin-top: 40px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.login-footer a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 5px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.login-footer a:hover {
+    border-bottom-color: var(--text-primary);
+}
+
+/* Hover Effects */
+.social-btn:active {
+    transform: scale(0.98);
+}
+
+/* Dashboard Styles */
+.dashboard-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-bottom: 30px;
+    background: var(--card-bg);
+    padding: 16px 24px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.dashboard-header .header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    color: var(--text-primary);
+}
+
+.page-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 8px;
+    border-left: 1px solid #e5e7eb;
+    padding-left: 16px;
+}
+
+.dashboard-header .logo {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-profile .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--google-border);
+}
+
+.user-profile .username {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.logout-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--google-border);
+    background: white;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    cursor: pointer;
+    margin-left: 12px;
+    transition: all 0.2s;
+}
+
+.logout-btn:hover {
+    background: #f1f3f5;
+}
+
+.dashboard-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.welcome-card {
+    background: var(--card-bg);
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.welcome-card h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.welcome-card p {
+    color: var(--text-secondary);
+}
+
+.session-info {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #f1f3f5;
+    font-size: 14px;
+}
+
+.session-info p {
+    margin-bottom: 8px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    background: #999;
+}
+
+.badge.Google {
+    background-color: #4285F4;
+}
+
+.badge.Apple {
+    background-color: #000000;
+}
+
+.badge.Naver {
+    background-color: #03C75A;
+}
+
+.badge.Kakao {
+    background-color: #FEE500;
+    color: black;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.dashboard-grid .card {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    min-height: 150px;
+}
+
+.dashboard-grid .card h3 {
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.dashboard-grid .card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 32px 20px;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    body {
+        align-items: flex-start;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    .user-profile {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설정 - My App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <a href="dashboard.html" class="back-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    돌아가기
+                </a>
+                <span class="page-title">설정</span>
+            </div>
+            <div class="user-profile">
+                <!-- Simple profile for context -->
+                <span id="user-name" class="username">User</span>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <div class="card registration-card">
+                <h3>차량 정보</h3>
+                <div id="vehicle-display" style="display:none;">
+                    <div class="info-row">
+                        <p class="registered-value" id="vehicle-value"></p>
+                        <span class="status-badge registered">등록됨</span>
+                    </div>
+                </div>
+                <div id="vehicle-form">
+                    <p class="description">차량 번호를 등록해주세요.</p>
+                    <div class="input-group">
+                        <input type="text" id="vehicle-input" placeholder="예: 123가1234">
+                        <button id="btn-register-vehicle" class="btn-primary">등록</button>
+                    </div>
+                    <p class="hint">형식: 숫자3자리 + 한글 + 숫자4자리 (예: 123가1234)</p>
+                </div>
+            </div>
+
+            <div class="card registration-card">
+                <h3>휴대폰 번호</h3>
+                <div id="phone-display" style="display:none;">
+                    <div class="info-row">
+                        <p class="registered-value" id="phone-value"></p>
+                        <span class="status-badge registered">등록됨</span>
+                    </div>
+                </div>
+                <div id="phone-form">
+                    <p class="description">휴대폰 번호를 등록해주세요.</p>
+                    <div class="input-group">
+                        <input type="text" id="phone-input" placeholder="예: 010-1234-5678" maxlength="13">
+                        <button id="btn-register-phone" class="btn-primary">등록</button>
+                    </div>
+                    <p class="hint">형식: 010-0000-0000</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="auth.js"></script>
+    <script src="registration.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = Auth.checkAuth();
+            if (user) {
+                document.getElementById('user-name').textContent = user.name;
+                Registration.init();
+            }
+        });
+    </script>
+</body>
+
+</html>
