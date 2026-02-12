@@ -1,0 +1,24 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Create .env file
+      run: |
+        echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> ./server/.env
+        echo "PORT=${{ secrets.PORT }}" >> ./server/.env
+        echo "NODE_ENV=${{ secrets.NODE_ENV }}" >> ./server/.env
+
+
+    - name: Build the Docker image
+      run: docker-compose build
