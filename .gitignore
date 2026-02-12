@@ -1,0 +1,15 @@
+# General
+.DS_Store
+dist/
+build/
+*.log
+.env
+.idea/
+.vscode/
+
+# Dependencies
+node_modules/
+
+# Database
+*.sqlite
+*.db

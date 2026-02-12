@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -13,11 +14,29 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../client'))); // Serve frontend
 
 // Database setup (SQLite)
-const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: './database.sqlite',
-    logging: false
-});
+// Database setup
+let sequelize;
+
+if (process.env.NODE_ENV === 'production') {
+    // Supabase (PostgreSQL)
+    sequelize = new Sequelize(process.env.DATABASE_URL, {
+        dialect: 'postgres',
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
+        },
+        logging: false
+    });
+} else {
+    // Development (SQLite)
+    sequelize = new Sequelize({
+        dialect: 'sqlite',
+        storage: './database.sqlite',
+        logging: false
+    });
+}
 
 // User Model
 const User = sequelize.define('User', {
